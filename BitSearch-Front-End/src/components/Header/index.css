@@ -1,0 +1,18 @@
+@media screen and (min-width: 500px) {
+    #logo{
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #logo{
+        height: 60px;
+    }
+}
+#logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6rem;
+    transition: all 1s;
+}

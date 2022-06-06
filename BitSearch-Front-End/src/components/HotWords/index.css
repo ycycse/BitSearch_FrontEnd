@@ -1,0 +1,48 @@
+#hotwords{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    margin:10px auto;
+}
+
+@media screen and (min-height: 1000px){
+    #hotwords{
+        top: 20rem;
+    }
+}
+
+@media screen and (max-height: 1000px){
+    #hotwords{
+        top: 15.2rem;
+    }
+}
+
+#hotwords a{
+    position:absolute;
+    top:0;
+    left:0;
+    color:#fff;
+    font-weight:bold;
+    padding:3px 6px;
+}
+
+#hotwords a:hover{
+    border:1px solid #eee;
+    background:#000;
+    border-radius:5px;
+}
+
+@media screen and (min-width: 500px) {
+    #hotwords{
+        height:25rem;
+        width:28rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #hotwords{
+        height:20rem;
+        width:22rem;
+    }
+}
