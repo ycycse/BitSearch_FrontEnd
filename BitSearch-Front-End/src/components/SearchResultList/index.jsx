@@ -50,7 +50,7 @@ function SearchResultList  (props) {
         console.log("search data",searchData)
         let {data} = await axios.post('http://127.0.0.1:5678/api/query?database='+type,searchData)
         if(data.state === false){
-            message.error('获取数据失败：'+data.message)
+            message.error('没有搜索到相关信息')
             return;
         }
         console.log("data",data)
@@ -61,16 +61,14 @@ function SearchResultList  (props) {
         for(let i=0,length=ListData.length;i<length;i++){
             let item = ListData[i]
             // item.document.title = outLineKeyWords(keywords, item.document.title);
-            if(type==="WebPage"){
-                let url = item.document.URL
-                let detail = (await axios.post("http://127.0.0.1:5678/api/pageDetail?url="+url))
-                if (detail.status===200){
-                    console.log("detail",detail.data)
-                    if(detail.data.state===true){
-                        console.log(detail.data.data)
-                        item.text = detail.data.data[0]
-                        // item.description = "outLineKeyWords(keywords,detail.data[1])"
-                    }
+            let url = item.document.URL
+            let detail = (await axios.post("http://127.0.0.1:5678/api/pageDetail?url="+url))
+            if (detail.status===200){
+                console.log("detail",detail.data)
+                if(detail.data.state===true){
+                    console.log(detail.data.data)
+                    item.text = detail.data.data[0]
+                    // item.description = "outLineKeyWords(keywords,detail.data[1])"
                 }
             }
 
