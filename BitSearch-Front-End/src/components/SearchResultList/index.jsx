@@ -61,14 +61,16 @@ function SearchResultList  (props) {
         for(let i=0,length=ListData.length;i<length;i++){
             let item = ListData[i]
             // item.document.title = outLineKeyWords(keywords, item.document.title);
-            let url = item.document.URL
-            let detail = (await axios.post("http://127.0.0.1:5678/api/pageDetail?url="+url))
-            if (detail.status===200){
-                console.log("detail",detail.data)
-                if(detail.data.state===true){
-                    console.log(detail.data.data)
-                    item.text = detail.data.data[0]
-                    // item.description = "outLineKeyWords(keywords,detail.data[1])"
+            if(type==="WebPage"){
+                let url = item.document.URL
+                let detail = (await axios.post("http://127.0.0.1:5678/api/pageDetail?url="+url))
+                if (detail.status===200){
+                    console.log("detail",detail.data)
+                    if(detail.data.state===true){
+                        console.log(detail.data.data)
+                        item.text = detail.data.data[0]
+                        // item.description = "outLineKeyWords(keywords,detail.data[1])"
+                    }
                 }
             }
 
