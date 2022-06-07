@@ -22,7 +22,7 @@ yarn start
 
 项目的主要界面如下所示
 
-![1](.\img\1.png)
+![1](./img/1.png)
 
 ![img](./img/2.png)
 
